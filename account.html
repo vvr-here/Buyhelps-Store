@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — Buyhelps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <div id="site-header"></div>
+
+  <main>
+    <div class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current" id="account-breadcrumb-label">My Account</span>
+      </nav>
+
+      <!-- Account Hero Profile Banner -->
+      <div class="account-hero">
+        <div class="account-profile-left">
+          <div class="account-avatar" title="Vikram V. Rao">VVR</div>
+          <div class="account-name-wrap">
+            <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+              <h1>Vikram V. Rao</h1>
+              <span class="account-tier-badge">✦ Platinum Member</span>
+            </div>
+            <div class="account-meta-text">
+              <span>vvr@example.com</span> • <span>+91 98765 43210</span> • <span>Member since Jan 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="account-stats-row">
+          <div class="account-stat-box">
+            <span class="account-stat-num" id="stat-orders-count">3</span>
+            <span class="account-stat-lbl">Orders</span>
+          </div>
+          <div class="account-stat-box">
+            <span class="account-stat-num" style="color:#10B981;">1</span>
+            <span class="account-stat-lbl">Active Delivery</span>
+          </div>
+          <div class="account-stat-box">
+            <span class="account-stat-num" id="stat-addresses-count">3</span>
+            <span class="account-stat-lbl">Addresses</span>
+          </div>
+          <div class="account-stat-box">
+            <span class="account-stat-num" style="color:#4F46E5;">₹1,250</span>
+            <span class="account-stat-lbl">Wallet Cash</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Hub Layout: Sidebar + Tab Content -->
+      <div class="account-layout">
+
+        <!-- Sidebar Navigation -->
+        <aside class="account-sidebar-card">
+          <button type="button" class="account-nav-btn active" data-tab="orders">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
+            <span>Orders &amp; Tracking</span>
+            <span class="account-badge-pill" style="background:#10B981;color:#fff;">1 Live</span>
+          </button>
+
+          <button type="button" class="account-nav-btn" data-tab="addresses">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span>Saved Addresses</span>
+            <span class="account-badge-pill" id="nav-addresses-count">3</span>
+          </button>
+
+          <button type="button" class="account-nav-btn" data-tab="payments">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </span>
+            <span>Payment &amp; Wallet</span>
+          </button>
+
+          <button type="button" class="account-nav-btn" data-tab="wishlist">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </span>
+            <span>My Wishlist</span>
+            <span class="account-badge-pill">3</span>
+          </button>
+
+          <button type="button" class="account-nav-btn" data-tab="vip-rewards">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </span>
+            <span>VIP Rewards Club</span>
+            <span class="account-badge-pill" style="background:#F59E0B;color:#78350F;font-weight:800;font-size:0.65rem;">GOLD</span>
+          </button>
+
+          <button type="button" class="account-nav-btn" data-tab="settings">
+            <span class="account-nav-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </span>
+            <span>Profile &amp; Security</span>
+          </button>
+        </aside>
+
+        <!-- Main Tab Panels Area -->
+        <div class="account-content-area">
+
+          <!-- ========================================================
+               TAB 1: ORDERS & TRACK ORDER
+               ======================================================== -->
+          <div class="account-panel active" id="tab-panel-orders">
+            
+            <!-- Quick Track Search Bar -->
+            <div class="account-section-card" style="padding:1.5rem 2rem;">
+              <h2 class="account-section-title" style="margin-bottom:0.75rem;">
+                <svg width="22" height="22" fill="none" stroke="#4F46E5" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Track Any Shipment
+              </h2>
+              <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:1rem;">Enter your Buyhelps Order ID or BlueDart AWB number to check real-time package milestones.</p>
+              <form id="track-order-form" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                <input type="text" id="track-order-input" class="form-input" style="flex:1;min-width:240px;" placeholder="e.g. #BUYHELPS-2026-84920" value="#BUYHELPS-2026-84920" required>
+                <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Track Package</button>
+              </form>
+            </div>
+
+            <!-- Active Live Order Tracker Card -->
+            <div class="account-section-card" id="live-order-card">
+              <div class="account-section-header">
+                <div>
+                  <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                    <h3 style="font-size:1.25rem;font-weight:800;" id="tracked-order-id">#BUYHELPS-2026-84920</h3>
+                    <span class="badge" style="background:#DCFCE7;color:#15803D;font-weight:700;">In Transit</span>
+                  </div>
+                  <span style="font-size:0.85rem;color:var(--color-text-muted);">Placed on Oct 28, 2026 at 02:45 PM • Paid via UPI</span>
+                </div>
+                <div style="text-align:right;">
+                  <span style="font-size:0.8rem;color:var(--color-text-muted);display:block;">Estimated Delivery</span>
+                  <strong style="font-size:1.1rem;color:#10B981;">Nov 2, 2026 (Mon)</strong>
+                </div>
+              </div>
+
+              <!-- Visual 5-Step Progress Timeline -->
+              <div class="tracker-box">
+                <div class="tracker-status-bar">
+                  <div class="tracker-progress-line">
+                    <div class="tracker-progress-fill" style="width: 50%;"></div>
+                  </div>
+
+                  <!-- Step 1: Confirmed -->
+                  <div class="tracker-node completed">
+                    <div class="tracker-dot">✓</div>
+                    <span class="tracker-label">Order Placed</span>
+                    <span class="tracker-time">Oct 28, 2:45 PM</span>
+                  </div>
+
+                  <!-- Step 2: Packed -->
+                  <div class="tracker-node completed">
+                    <div class="tracker-dot">✓</div>
+                    <span class="tracker-label">Packed &amp; Ready</span>
+                    <span class="tracker-time">Oct 28, 7:15 PM</span>
+                  </div>
+
+                  <!-- Step 3: Shipped / In Transit (ACTIVE) -->
+                  <div class="tracker-node active">
+                    <div class="tracker-dot">🚚</div>
+                    <span class="tracker-label">In Transit</span>
+                    <span class="tracker-time">Oct 29, 9:30 AM</span>
+                  </div>
+
+                  <!-- Step 4: Out for Delivery -->
+                  <div class="tracker-node">
+                    <div class="tracker-dot">🛵</div>
+                    <span class="tracker-label">Out for Delivery</span>
+                    <span class="tracker-time">Expected Nov 2</span>
+                  </div>
+
+                  <!-- Step 5: Delivered -->
+                  <div class="tracker-node">
+                    <div class="tracker-dot">🏠</div>
+                    <span class="tracker-label">Delivered</span>
+                    <span class="tracker-time">Pending</span>
+                  </div>
+                </div>
+
+                <!-- Courier Meta Details -->
+                <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1rem;margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem;">
+                  <div>
+                    <span style="font-size:0.75rem;color:var(--color-text-muted);display:block;text-transform:uppercase;font-weight:700;">Courier Partner</span>
+                    <strong style="font-size:0.95rem;">BlueDart Express</strong>
+                  </div>
+                  <div>
+                    <span style="font-size:0.75rem;color:var(--color-text-muted);display:block;text-transform:uppercase;font-weight:700;">Tracking Number (AWB)</span>
+                    <div style="display:flex;align-items:center;gap:0.4rem;">
+                      <code style="font-weight:700;font-size:0.9rem;color:#4F46E5;">BLUEDART-EXP-98214</code>
+                      <button type="button" onclick="navigator.clipboard.writeText('BLUEDART-EXP-98214');showToast('Tracking number copied!');" title="Copy tracking ID" style="padding:0.2rem;opacity:0.7;"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                    </div>
+                  </div>
+                  <div>
+                    <span style="font-size:0.75rem;color:var(--color-text-muted);display:block;text-transform:uppercase;font-weight:700;">Current Facility</span>
+                    <span style="font-weight:600;font-size:0.9rem;">Bengaluru In-Transit Hub</span>
+                  </div>
+                  <div>
+                    <span style="font-size:0.75rem;color:var(--color-text-muted);display:block;text-transform:uppercase;font-weight:700;">Delivery Address</span>
+                    <span style="font-size:0.85rem;color:var(--color-text-secondary);">Indiranagar, Bengaluru - 560038</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ordered Items in this Package -->
+              <div style="border-top:1px solid var(--color-border);padding-top:1.25rem;">
+                <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:0.85rem;">Items in Shipment (1)</h4>
+                <div style="display:flex;gap:1.25rem;align-items:center;padding:0.75rem;background:var(--color-surface-subtle);border-radius:var(--radius-md);">
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&q=80" alt="Studio Wireless Headphones" onerror="handleImgError(this, 'Studio Wireless Headphones', 'Electronics')" style="width:65px;height:65px;object-fit:cover;border-radius:var(--radius-sm);">
+                  <div style="flex:1;">
+                    <a href="products/wireless-headphones.html" style="font-weight:700;font-size:1rem;color:var(--color-text-primary);">Studio Wireless Headphones</a>
+                    <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.2rem;">Color: Matte Black • Qty: 1</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <strong style="font-size:1.1rem;display:block;">₹14,999</strong>
+                    <span style="font-size:0.75rem;color:var(--color-success);font-weight:600;">Free Delivery</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Action Buttons -->
+              <div style="display:flex;gap:0.75rem;margin-top:1.25rem;flex-wrap:wrap;justify-content:flex-end;">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="InvoiceModal.open('#BUYHELPS-2026-84920')">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download Tax Invoice
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="SupportChat.toggleWindow()">
+                  💬 Need Help? Chat with Us
+                </button>
+              </div>
+            </div>
+
+            <!-- Past Order History -->
+            <div class="account-section-card">
+              <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1.25rem;">Past Delivered Orders</h3>
+
+              <!-- Past Order 1 -->
+              <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:1rem;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+                  <div>
+                    <span style="font-weight:800;font-size:1rem;">#BUYHELPS-2026-71204</span>
+                    <div style="font-size:0.8rem;color:var(--color-text-muted);">Ordered on Oct 18, 2026 • Delivered on Oct 22, 2026</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <span class="badge" style="background:#DCFCE7;color:#15803D;">Delivered ✓</span>
+                    <strong style="display:block;margin-top:0.25rem;">₹8,999</strong>
+                  </div>
+                </div>
+                <div style="display:flex;gap:1rem;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=160&q=80" alt="Mechanical Keyboard" onerror="handleImgError(this, 'Mechanical Keyboard', 'Electronics')" style="width:55px;height:55px;object-fit:cover;border-radius:var(--radius-sm);">
+                  <div style="flex:1;">
+                    <span style="font-weight:600;font-size:0.95rem;">Mechanical Desk Keyboard</span>
+                    <div style="font-size:0.8rem;color:var(--color-text-muted);">Frame: Space Gray • Qty: 1</div>
+                  </div>
+                  <div style="display:flex;gap:0.5rem;">
+                    <button class="btn btn-secondary btn-sm" onclick="Cart.addItem('mechanical-keyboard');showToast('Added to cart!');">Buy Again</button>
+                    <a href="products/mechanical-keyboard.html" class="btn btn-secondary btn-sm">View Item</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Past Order 2 -->
+              <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+                  <div>
+                    <span style="font-weight:800;font-size:1rem;">#BUYHELPS-2026-60419</span>
+                    <div style="font-size:0.8rem;color:var(--color-text-muted);">Ordered on Sep 10, 2026 • Delivered on Sep 14, 2026</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <span class="badge" style="background:#DCFCE7;color:#15803D;">Delivered ✓</span>
+                    <strong style="display:block;margin-top:0.25rem;">₹6,498</strong>
+                  </div>
+                </div>
+                <div style="display:flex;gap:1rem;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=160&q=80" alt="Coffee Set" onerror="handleImgError(this, 'Coffee Set', 'Home')" style="width:55px;height:55px;object-fit:cover;border-radius:var(--radius-sm);">
+                  <div style="flex:1;">
+                    <span style="font-weight:600;font-size:0.95rem;">Ceramic Pour-Over Coffee Set + Relaxed Linen Overshirt</span>
+                    <div style="font-size:0.8rem;color:var(--color-text-muted);">2 Items • Total Savings: ₹1,500</div>
+                  </div>
+                  <div style="display:flex;gap:0.5rem;">
+                    <button class="btn btn-secondary btn-sm" onclick="Cart.addItem('ceramic-pour-over');showToast('Added to cart!');">Buy Again</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ========================================================
+               TAB 2: SAVED ADDRESSES
+               ======================================================== -->
+          <div class="account-panel" id="tab-panel-addresses">
+            <div class="account-section-card">
+              <div class="account-section-header">
+                <div>
+                  <h2 class="account-section-title">
+                    <svg width="22" height="22" fill="none" stroke="#4F46E5" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Saved Delivery Addresses
+                  </h2>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-top:0.25rem;">Manage your shipping and billing locations for seamless 1-click checkout.</p>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="openAddressModal()">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add New Address
+                </button>
+              </div>
+
+              <!-- Address Cards Grid -->
+              <div class="addresses-grid" id="addresses-grid-container">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================================
+               TAB 3: PAYMENT METHODS & WALLET
+               ======================================================== -->
+          <div class="account-panel" id="tab-panel-payments">
+            <div class="account-section-card">
+              <div class="account-section-header">
+                <div>
+                  <h2 class="account-section-title">
+                    <svg width="22" height="22" fill="none" stroke="#4F46E5" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    Payment Methods &amp; Wallet
+                  </h2>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-top:0.25rem;">Saved UPI IDs, credit/debit cards, and Buyhelps instant store credits.</p>
+                </div>
+              </div>
+
+              <!-- Wallet Hero Card -->
+              <div style="background:linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);color:#fff;border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;">
+                <div>
+                  <span style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;font-weight:700;">Buyhelps Cash Wallet</span>
+                  <div style="font-size:2.2rem;font-weight:900;margin:0.25rem 0;">₹1,250.00</div>
+                  <span style="font-size:0.85rem;color:#A7F3D0;">✓ Auto-applied at checkout for instant ₹1,250 off</span>
+                </div>
+                <div style="display:flex;gap:0.75rem;">
+                  <button type="button" class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border:none;" onclick="showToast('Recharge link sent to your registered phone number');">+ Top Up</button>
+                  <button type="button" class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border:none;" onclick="showToast('Wallet statement downloaded');">Statement</button>
+                </div>
+              </div>
+
+              <!-- Saved Cards & UPI -->
+              <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;">Saved Cards &amp; UPI</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1.25rem;">
+                <!-- Card 1 -->
+                <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);position:relative;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+                    <span style="font-weight:800;color:#1E40AF;font-size:1.1rem;">VISA</span>
+                    <span class="default-chip">DEFAULT</span>
+                  </div>
+                  <div style="font-family:var(--font-mono);font-size:1.1rem;letter-spacing:0.1em;margin-bottom:0.75rem;font-weight:600;">•••• •••• •••• 4821</div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--color-text-muted);">
+                    <span>HDFC Regalia Credit</span>
+                    <span>Expires 08/29</span>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+                    <span style="font-weight:800;color:#DC2626;font-size:1.1rem;">Mastercard</span>
+                  </div>
+                  <div style="font-family:var(--font-mono);font-size:1.1rem;letter-spacing:0.1em;margin-bottom:0.75rem;font-weight:600;">•••• •••• •••• 9102</div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--color-text-muted);">
+                    <span>ICICI Coral Debit</span>
+                    <span>Expires 11/27</span>
+                  </div>
+                </div>
+
+                <!-- UPI ID -->
+                <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);display:flex;flex-direction:column;justify-content:space-between;">
+                  <div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                      <span style="font-weight:800;color:#047857;font-size:1rem;">BHIM UPI</span>
+                      <span class="badge" style="background:#DCFCE7;color:#15803D;">Verified</span>
+                    </div>
+                    <code style="font-size:0.95rem;font-weight:700;">vvr@okhdfcbank</code>
+                  </div>
+                  <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
+                    <button class="btn btn-secondary btn-sm" onclick="showToast('Primary UPI set');">Set Default</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ========================================================
+               TAB 4: WISHLIST
+               ======================================================== -->
+          <div class="account-panel" id="tab-panel-wishlist">
+            <div class="account-section-card">
+              <div class="account-section-header">
+                <div>
+                  <h2 class="account-section-title">
+                    <svg width="22" height="22" fill="#EC4899" stroke="#EC4899" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    My Saved Wishlist (<span id="wishlist-count-badge">3</span>)
+                  </h2>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-top:0.25rem;">Products you've saved across Buyhelps. Click any item to view or move to cart.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3" id="wishlist-grid-container" style="gap:1.5rem;">
+                <!-- Rendered dynamically by JS from Wishlist.get() -->
+              </div>
+
+            </div>
+          </div>
+
+            </div>
+          </div>
+
+          <!-- ========================================================
+               TAB 6: VIP CLUB & REWARDS PROGRAM (Feature 6)
+               ======================================================== -->
+          <div class="account-panel" id="tab-panel-vip-rewards">
+            
+            <!-- VIP Banner Card -->
+            <div class="vip-card-banner">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+                <div>
+                  <div class="vip-badge-pill">
+                    <span>👑 GOLD VIP MEMBER</span>
+                  </div>
+                  <h2 style="font-size:1.8rem;font-weight:900;margin:0.75rem 0 0.25rem 0;">Welcome to Buyhelps Elite Club</h2>
+                  <p style="font-size:0.9rem;opacity:0.85;">Enjoy exclusive privileges, priority express shipping, and 5% cashback on every purchase.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.2);padding:0.85rem 1.25rem;border-radius:var(--radius-lg);text-align:right;">
+                  <span style="font-size:0.75rem;opacity:0.8;text-transform:uppercase;letter-spacing:0.05em;display:block;">Available Club Points</span>
+                  <strong style="font-size:1.5rem;color:#FDE047;">1,250 Pts</strong>
+                  <span style="font-size:0.75rem;display:block;opacity:0.9;">(= ₹1,250 Buyhelps Cash)</span>
+                </div>
+              </div>
+
+              <!-- Milestone Progress to Platinum -->
+              <div style="background:rgba(0,0,0,0.2);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:700;">
+                  <span>Current Tier: Gold Member (₹24,498 Spent)</span>
+                  <span style="color:#FDE047;">Next: Platinum VIP (₹30,000)</span>
+                </div>
+                <div class="vip-progress-track">
+                  <div class="vip-progress-fill" style="width: 81%;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.75rem;opacity:0.8;margin-top:0.35rem;">
+                  <span>Bronze (₹0)</span>
+                  <span>Silver (₹5,000)</span>
+                  <span style="color:#FDE047;font-weight:700;">Gold (₹15,000) ✓</span>
+                  <span>Platinum (₹30,000)</span>
+                </div>
+                <p style="font-size:0.8rem;margin-top:0.6rem;color:#E0E7FF;">
+                  🎯 <strong>Spend ₹5,502 more</strong> before Dec 31 to unlock Platinum VIP tier with 10% instant cashback &amp; 24/7 personal concierge!
+                </p>
+              </div>
+            </div>
+
+            <!-- Active VIP Perks for Gold Tier -->
+            <div class="account-section-card">
+              <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.35rem;">Your Gold Tier Perks</h3>
+              <p style="font-size:0.85rem;color:var(--color-text-secondary);margin-bottom:1.5rem;">These privileges are automatically applied to your account on all purchases.</p>
+              
+              <div class="vip-perk-grid">
+                <div class="vip-perk-card">
+                  <div class="vip-perk-icon">💰</div>
+                  <strong style="font-size:0.95rem;display:block;margin-bottom:0.25rem;">5% Direct Cashback</strong>
+                  <p style="font-size:0.8rem;color:var(--color-text-muted);">Credited instantly to your Buyhelps Cash Wallet after delivery.</p>
+                </div>
+                <div class="vip-perk-card">
+                  <div class="vip-perk-icon">⚡</div>
+                  <strong style="font-size:0.95rem;display:block;margin-bottom:0.25rem;">Free Express Air Delivery</strong>
+                  <p style="font-size:0.8rem;color:var(--color-text-muted);">Priority BlueDart Air dispatch with zero minimum order value.</p>
+                </div>
+                <div class="vip-perk-card">
+                  <div class="vip-perk-icon">🎁</div>
+                  <strong style="font-size:0.95rem;display:block;margin-bottom:0.25rem;">Complimentary Gift Wrap</strong>
+                  <p style="font-size:0.8rem;color:var(--color-text-muted);">1-click luxury gift wrap included free on any gift order.</p>
+                </div>
+                <div class="vip-perk-card">
+                  <div class="vip-perk-icon">🔓</div>
+                  <strong style="font-size:0.95rem;display:block;margin-bottom:0.25rem;">Early Festive Access</strong>
+                  <p style="font-size:0.8rem;color:var(--color-text-muted);">48-hour headstart on limited-edition product drops &amp; flash sales.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exclusive VIP Vouchers -->
+            <div class="account-section-card">
+              <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1rem;">Your Exclusive VIP Vouchers</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:1rem;">
+                <div style="border:2px dashed #4F46E5;border-radius:var(--radius-md);padding:1rem;background:var(--color-surface-subtle);display:flex;justify-content:space-between;align-items:center;">
+                  <div>
+                    <span class="badge" style="background:#EEF2FF;color:#4F46E5;font-weight:700;">₹500 OFF</span>
+                    <div style="font-weight:700;font-size:1rem;margin-top:0.35rem;">VIPGOLD500</div>
+                    <div style="font-size:0.75rem;color:var(--color-text-muted);">Valid on orders &ge; ₹2,499</div>
+                  </div>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText('VIPGOLD500');showToast('Voucher code VIPGOLD500 copied!');">Copy Code</button>
+                </div>
+
+                <div style="border:2px dashed #EC4899;border-radius:var(--radius-md);padding:1rem;background:var(--color-surface-subtle);display:flex;justify-content:space-between;align-items:center;">
+                  <div>
+                    <span class="badge" style="background:#FFF1F2;color:#EC4899;font-weight:700;">BIRTHDAY GIFT</span>
+                    <div style="font-weight:700;font-size:1rem;margin-top:0.35rem;">BDAYGIFT500</div>
+                    <div style="font-size:0.75rem;color:var(--color-text-muted);">Flat ₹500 storewide voucher</div>
+                  </div>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText('BDAYGIFT500');showToast('Voucher code BDAYGIFT500 copied!');">Copy Code</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier Comparison Table -->
+            <div class="account-section-card">
+              <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1rem;">VIP Tier Comparison</h3>
+              <div style="overflow-x:auto;">
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>Perk</th>
+                      <th>Bronze (Member)</th>
+                      <th>Silver (₹5k+)</th>
+                      <th style="background:#FEF3C7;color:#78350F;">Gold (Current)</th>
+                      <th>Platinum VIP (₹30k+)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Wallet Cashback</td>
+                      <td>0%</td>
+                      <td>2%</td>
+                      <td style="background:#FFFBEB;font-weight:700;color:#B45309;">5%</td>
+                      <td>10% Instant</td>
+                    </tr>
+                    <tr>
+                      <td>Shipping</td>
+                      <td>Free &gt; ₹1,999</td>
+                      <td>Free Standard</td>
+                      <td style="background:#FFFBEB;font-weight:700;color:#B45309;">Free Express Air</td>
+                      <td>Free Same-Day Priority</td>
+                    </tr>
+                    <tr>
+                      <td>Birthday Voucher</td>
+                      <td>—</td>
+                      <td>₹250</td>
+                      <td style="background:#FFFBEB;font-weight:700;color:#B45309;">₹500</td>
+                      <td>₹1,000</td>
+                    </tr>
+                    <tr>
+                      <td>Personal Concierge</td>
+                      <td>—</td>
+                      <td>—</td>
+                      <td style="background:#FFFBEB;color:#B45309;">Standard</td>
+                      <td>24/7 Dedicated Agent</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ========================================================
+               TAB 5: PROFILE & SECURITY
+               ======================================================== -->
+          <div class="account-panel" id="tab-panel-settings">
+            <div class="account-section-card">
+              <h2 class="account-section-title" style="margin-bottom:1.5rem;">Personal Details</h2>
+              <form id="profile-form" onsubmit="event.preventDefault();showToast('Profile updated successfully!');">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+                  <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" value="Vikram V. Rao" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" value="vvr@example.com" required>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" value="+91 98765 43210" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Account Language</label>
+                    <select class="form-input">
+                      <option selected>English (India)</option>
+                      <option>Hindi</option>
+                      <option>Telugu</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+              </form>
+            </div>
+
+            <!-- Notifications & Communication -->
+            <div class="account-section-card">
+              <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:1.25rem;">Alerts &amp; Notifications</h3>
+              <div style="display:flex;flex-direction:column;gap:1rem;">
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                  <div>
+                    <strong style="display:block;font-size:0.95rem;">WhatsApp Order Updates</strong>
+                    <span style="font-size:0.8rem;color:var(--color-text-muted);">Receive real-time courier tracking &amp; delivery PIN on WhatsApp</span>
+                  </div>
+                  <input type="checkbox" checked style="width:20px;height:20px;accent-color:#4F46E5;">
+                </label>
+                <div style="border-top:1px solid var(--color-border);"></div>
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                  <div>
+                    <strong style="display:block;font-size:0.95rem;">SMS Dispatch Notifications</strong>
+                    <span style="font-size:0.8rem;color:var(--color-text-muted);">Get instant SMS alerts when package is out for delivery</span>
+                  </div>
+                  <input type="checkbox" checked style="width:20px;height:20px;accent-color:#4F46E5;">
+                </label>
+                <div style="border-top:1px solid var(--color-border);"></div>
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                  <div>
+                    <strong style="display:block;font-size:0.95rem;">Curated Weekly Drops</strong>
+                    <span style="font-size:0.8rem;color:var(--color-text-muted);">Receive our weekly email digest of newly designed essentials</span>
+                  </div>
+                  <input type="checkbox" style="width:20px;height:20px;accent-color:#4F46E5;">
+                </label>
+              </div>
+            </div>
+
+            <!-- Security & Signout -->
+            <div class="account-section-card" style="border-color:rgba(239, 68, 68, 0.3);">
+              <h3 style="font-size:1.15rem;font-weight:700;color:#DC2626;margin-bottom:0.5rem;">Account Access</h3>
+              <p style="font-size:0.85rem;color:var(--color-text-muted);margin-bottom:1.25rem;">Sign out of all sessions across your desktop and mobile devices.</p>
+              <button type="button" class="btn btn-secondary" onclick="showToast('Signed out successfully');setTimeout(()=>window.location.href='index.html',1000);" style="color:#DC2626;border-color:#DC2626;">Sign Out of Buyhelps</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Add / Edit Address Modal -->
+  <div class="account-modal-overlay" id="address-modal-overlay">
+    <div class="account-modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:0.75rem;border-bottom:1px solid var(--color-border);">
+        <h3 style="font-size:1.25rem;font-weight:800;" id="address-modal-title">Add New Delivery Address</h3>
+        <button type="button" onclick="closeAddressModal()" style="font-size:1.4rem;line-height:1;opacity:0.6;cursor:pointer;">&times;</button>
+      </div>
+      <form id="address-form" onsubmit="handleSaveAddress(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="addr-name" class="form-input" placeholder="e.g. Vikram V. Rao" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">10-Digit Mobile Number *</label>
+            <input type="tel" id="addr-phone" class="form-input" placeholder="9876543210" required pattern="[0-9]{10}">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label class="form-label">Flat, House no., Building, Apartment *</label>
+          <input type="text" id="addr-line1" class="form-input" placeholder="e.g. Flat 402, Green Acres Residency" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label class="form-label">Area, Street, Sector, Village *</label>
+          <input type="text" id="addr-line2" class="form-input" placeholder="e.g. 12th Main Road, Indiranagar" required>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <div class="form-group">
+            <label class="form-label">Town / City *</label>
+            <input type="text" id="addr-city" class="form-input" placeholder="Bengaluru" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">State *</label>
+            <select id="addr-state" class="form-input" required>
+              <option value="Karnataka" selected>Karnataka</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Delhi">Delhi NCR</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+          <div class="form-group">
+            <label class="form-label">6-Digit PIN Code *</label>
+            <input type="text" id="addr-pincode" class="form-input" placeholder="560038" required pattern="[0-9]{6}">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address Type</label>
+            <select id="addr-type" class="form-input">
+              <option value="HOME" selected>Home (All day delivery)</option>
+              <option value="WORK">Work (Delivery 9 AM - 6 PM)</option>
+              <option value="OTHER">Other / Family</option>
+            </select>
+          </div>
+        </div>
+
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;margin-bottom:1.5rem;cursor:pointer;">
+          <input type="checkbox" id="addr-is-default" style="width:18px;height:18px;accent-color:#4F46E5;">
+          <span>Make this my default delivery address</span>
+        </label>
+
+        <div style="display:flex;justify-content:flex-end;gap:0.75rem;">
+          <button type="button" class="btn btn-secondary" onclick="closeAddressModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <div id="site-footer"></div>
+  <div id="cart-drawer-container"></div>
+  <div id="search-modal-container"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // 1. Inject Universal Components
+    document.getElementById('site-header').innerHTML = getHeaderHTML('account');
+    document.getElementById('site-footer').innerHTML = getFooterHTML();
+    document.getElementById('cart-drawer-container').innerHTML = getCartDrawerHTML();
+    document.getElementById('search-modal-container').innerHTML = getSearchModalHTML();
+    initApp();
+
+    // 2. Initial Sample Addresses in localStorage if not set
+    const DEFAULT_ADDRESSES = [
+      {
+        id: "addr-1",
+        name: "Vikram V. Rao",
+        phone: "+91 98765 43210",
+        line1: "Flat 402, Green Acres Residency",
+        line2: "12th Main Road, Indiranagar",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560038",
+        type: "HOME",
+        isDefault: true
+      },
+      {
+        id: "addr-2",
+        name: "Vikram V. Rao (Work)",
+        phone: "+91 98765 43210",
+        line1: "Tower B, 5th Floor, Manyata Embassy Business Park",
+        line2: "Outer Ring Road, Nagavara",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560045",
+        type: "WORK",
+        isDefault: false
+      },
+      {
+        id: "addr-3",
+        name: "V.V. Rao & Family",
+        phone: "+91 98765 11223",
+        line1: "House No. 45, Road No. 36",
+        line2: "Jubilee Hills",
+        city: "Hyderabad",
+        state: "Telangana",
+        pincode: "500033",
+        type: "OTHER",
+        isDefault: false
+      }
+    ];
+
+    function getSavedAddresses() {
+      try {
+        const stored = localStorage.getItem("buyhelps_addresses");
+        return stored ? JSON.parse(stored) : DEFAULT_ADDRESSES;
+      } catch {
+        return DEFAULT_ADDRESSES;
+      }
+    }
+
+    function saveAddresses(addresses) {
+      localStorage.setItem("buyhelps_addresses", JSON.stringify(addresses));
+      renderAddresses();
+    }
+
+    function renderAddresses() {
+      const addresses = getSavedAddresses();
+      const container = document.getElementById("addresses-grid-container");
+      document.getElementById("stat-addresses-count").textContent = addresses.length;
+      document.getElementById("nav-addresses-count").textContent = addresses.length;
+
+      container.innerHTML = addresses.map(addr => `
+        <div class="address-item-card ${addr.isDefault ? 'is-default' : ''}">
+          <div>
+            <div class="address-tag-row">
+              <span class="address-type-tag">${addr.type}</span>
+              ${addr.isDefault ? '<span class="default-chip">DEFAULT</span>' : ''}
+            </div>
+            <strong style="font-size:1.05rem;display:block;margin-bottom:0.35rem;">${addr.name}</strong>
+            <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">
+              ${addr.line1}<br>
+              ${addr.line2}<br>
+              ${addr.city}, ${addr.state} - <strong>${addr.pincode}</strong>
+            </p>
+            <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.6rem;">
+              Mobile: <strong>${addr.phone}</strong>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;padding-top:0.85rem;border-top:1px solid var(--color-border);font-size:0.85rem;">
+            ${!addr.isDefault ? `<button type="button" class="btn btn-secondary btn-sm" onclick="makeAddressDefault('${addr.id}')">Make Default</button>` : '<span style="color:var(--color-success);font-weight:600;">✓ Primary Shipping</span>'}
+            <button type="button" class="btn btn-secondary btn-sm" style="color:#DC2626;" onclick="deleteAddress('${addr.id}')" title="Delete address">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function makeAddressDefault(id) {
+      const addresses = getSavedAddresses().map(a => ({
+        ...a,
+        isDefault: a.id === id
+      }));
+      saveAddresses(addresses);
+      showToast("Default address updated!");
+    }
+
+    function deleteAddress(id) {
+      const addresses = getSavedAddresses();
+      if (addresses.length <= 1) {
+        showToast("You must keep at least one delivery address.");
+        return;
+      }
+      const updated = addresses.filter(a => a.id !== id);
+      if (!updated.some(a => a.isDefault)) {
+        updated[0].isDefault = true;
+      }
+      saveAddresses(updated);
+      showToast("Address removed.");
+    }
+
+    function openAddressModal() {
+      document.getElementById("address-form").reset();
+      document.getElementById("address-modal-overlay").classList.add("active");
+    }
+
+    function closeAddressModal() {
+      document.getElementById("address-modal-overlay").classList.remove("active");
+    }
+
+    function handleSaveAddress(e) {
+      e.preventDefault();
+      const addresses = getSavedAddresses();
+      const isDefault = document.getElementById("addr-is-default").checked || addresses.length === 0;
+
+      const newAddr = {
+        id: "addr-" + Date.now(),
+        name: document.getElementById("addr-name").value.trim(),
+        phone: "+91 " + document.getElementById("addr-phone").value.trim(),
+        line1: document.getElementById("addr-line1").value.trim(),
+        line2: document.getElementById("addr-line2").value.trim(),
+        city: document.getElementById("addr-city").value.trim(),
+        state: document.getElementById("addr-state").value,
+        pincode: document.getElementById("addr-pincode").value.trim(),
+        type: document.getElementById("addr-type").value,
+        isDefault: isDefault
+      };
+
+      let updated = addresses;
+      if (isDefault) {
+        updated = updated.map(a => ({ ...a, isDefault: false }));
+      }
+      updated.unshift(newAddr);
+      saveAddresses(updated);
+      closeAddressModal();
+      showToast("New delivery address saved!");
+    }
+
+    // 3. Tab Navigation & Deep Linking
+    function switchTab(tabName) {
+      // Normalize aliases
+      if (tabName === 'track') tabName = 'orders';
+
+      // Update sidebar active state
+      document.querySelectorAll('.account-nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+      });
+
+      // Update panels
+      document.querySelectorAll('.account-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === 'tab-panel-' + tabName);
+      });
+
+      // Update breadcrumb
+      const titles = {
+        orders: "Orders & Live Tracking",
+        addresses: "Saved Delivery Addresses",
+        payments: "Payment Methods & Wallet",
+        wishlist: "My Saved Items",
+        "vip-rewards": "VIP Rewards & Elite Club",
+        settings: "Profile & Security Settings"
+      };
+      const label = titles[tabName] || "My Account";
+      document.getElementById("account-breadcrumb-label").textContent = label;
+      document.title = `${label} — Buyhelps`;
+
+      // Update URL hash without scroll
+      if (history.pushState) {
+        history.pushState(null, null, '#tab=' + tabName);
+      } else {
+        location.hash = '#tab=' + tabName;
+      }
+    }
+
+    // Bind sidebar buttons
+    document.querySelectorAll('.account-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    // Check URL query param or hash on initial load
+    function initActiveTab() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryTab = urlParams.get('tab');
+      const hashMatch = window.location.hash.match(/tab=([a-z0-9_-]+)/i);
+      const hashTab = hashMatch ? hashMatch[1] : null;
+
+      const targetTab = queryTab || hashTab || 'orders';
+      switchTab(targetTab);
+    }
+
+    // 4. Live Order Search handler
+    document.getElementById('track-order-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = document.getElementById('track-order-input').value.trim();
+      if (!query) return;
+
+      document.getElementById('tracked-order-id').textContent = query;
+      showToast(`Tracking package for ${query}...`);
+      const card = document.getElementById('live-order-card');
+      card.style.animation = 'none';
+      card.offsetHeight; // trigger reflow
+      card.style.animation = 'fadeIn 0.3s ease';
+    });
+
+    // 5. Wishlist Dynamic Renderer
+    function renderWishlist() {
+      const ids = typeof Wishlist !== 'undefined' ? Wishlist.get() : [];
+      const container = document.getElementById("wishlist-grid-container");
+      const countEl = document.getElementById("wishlist-count-badge");
+      if (countEl) countEl.textContent = ids.length;
+      if (!container) return;
+
+      if (ids.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:3.5rem 1rem;">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">💖</div>
+            <h3 style="font-weight:800;margin-bottom:0.5rem;">Your Wishlist is Empty</h3>
+            <p style="color:var(--color-text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Explore our curated essentials and tap the heart icon on any card to save items here.</p>
+            <a href="categories.html" class="btn btn-primary">Discover Essentials</a>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = ids
+        .map(id => {
+          const p = getProductById(id);
+          if (!p) return '';
+          return renderProductCard(p);
+        })
+        .join('');
+    }
+
+    window.addEventListener("wishlist:updated", renderWishlist);
+
+    // Initialize
+    renderAddresses();
+    renderWishlist();
+    initActiveTab();
+  </script>
+</body>
+</html>

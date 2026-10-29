@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - Buyhelps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <div class="container">
+      <div class="confirmation-wrap" style="max-width:560px;margin:4rem auto;text-align:center;">
+
+        <!-- Checkmark Icon -->
+        <div class="confirmation-icon" style="margin-bottom:1.5rem;">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="display:inline-block;">
+            <circle cx="40" cy="40" r="38" stroke="#10B981" stroke-width="3" fill="#f0fdf4"/>
+            <path d="M24 40l10 10 22-22" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+
+        <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.75rem;">Order Placed Successfully!</h2>
+        <p style="color:var(--color-text-muted);font-size:1.05rem;margin-bottom:2rem;">Thank you for your purchase from Buyhelps. Your shipment is being prepared.</p>
+
+        <!-- Order Details Card -->
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:2rem;text-align:left;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--color-border);">
+            <span style="color:var(--color-text-muted);font-size:0.9rem;">Order ID</span>
+            <span id="order-number" style="font-weight:800;font-size:0.95rem;color:var(--color-primary);"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--color-border);">
+            <span style="color:var(--color-text-muted);font-size:0.9rem;">Order Date</span>
+            <span style="font-weight:600;font-size:0.9rem;" id="order-date"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--color-border);">
+            <span style="color:var(--color-text-muted);font-size:0.9rem;">Carrier Partner</span>
+            <span style="font-weight:700;font-size:0.9rem;color:#4F46E5;">BlueDart Express Air</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="color:var(--color-text-muted);font-size:0.9rem;">Estimated Delivery</span>
+            <span style="font-weight:700;font-size:0.95rem;color:#10B981;" id="order-est-delivery"></span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="account.html" class="btn btn-primary" style="padding:0.85rem 2rem;font-size:0.95rem;display:inline-flex;align-items:center;gap:0.5rem;">
+            <span>📦</span> Track Order in Account
+          </a>
+          <button type="button" class="btn btn-secondary" onclick="InvoiceModal.open()" style="padding:0.85rem 2rem;font-size:0.95rem;display:inline-flex;align-items:center;gap:0.5rem;">
+            <span>🖨️</span> Download Tax Invoice
+          </button>
+          <a href="index.html" class="btn btn-outline" style="padding:0.85rem 2rem;font-size:0.95rem;">
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="cart-drawer-container"></div>
+  <div id="search-modal-container"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('site-header').innerHTML = getHeaderHTML('home');
+    document.getElementById('site-footer').innerHTML = getFooterHTML();
+    document.getElementById('cart-drawer-container').innerHTML = getCartDrawerHTML();
+    document.getElementById('search-modal-container').innerHTML = getSearchModalHTML();
+    initApp();
+
+    const storedId = localStorage.getItem('buyhelps_last_order_id');
+    const orderId = storedId || ('#BUYHELPS-2026-' + Math.floor(10000 + Math.random() * 90000));
+    document.getElementById('order-number').textContent = orderId;
+
+    const today = new Date();
+    document.getElementById('order-date').textContent = today.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+
+    const deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 4);
+    document.getElementById('order-est-delivery').textContent = deliveryDate.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+  </script>
+</body>
+</html>

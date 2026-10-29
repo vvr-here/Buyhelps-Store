@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Categories - Buyhelps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <div class="section-sm">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Categories</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Header -->
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">All Categories</h1>
+                <p class="section-subtitle">Browse our curated collections</p>
+            </div>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="container">
+            <div class="grid grid-cols-3" id="categories-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <div style="padding-bottom: 4rem;"></div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="cart-drawer-container"></div>
+    <div id="search-modal-container"></div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Inject shared components
+        document.getElementById('site-header').innerHTML = getHeaderHTML('categories');
+        document.getElementById('site-footer').innerHTML = getFooterHTML();
+        document.getElementById('cart-drawer-container').innerHTML = getCartDrawerHTML();
+        document.getElementById('search-modal-container').innerHTML = getSearchModalHTML();
+        initApp();
+
+        // Populate categories grid
+        document.getElementById('categories-grid').innerHTML = CATEGORIES.map(cat => {
+            const count = getProductsByCategory(cat.id).length;
+            return `<a class="category-card" href="category.html?cat=${cat.id}">
+                <img src="${cat.image}" alt="${cat.name}" onerror="handleImgError(this, '${cat.name}', 'Category')">
+                <div class="category-card-overlay"></div>
+                <div class="category-card-info">
+                    <div class="category-card-title">${cat.icon} ${cat.name}</div>
+                    <div class="category-card-count">${count} products</div>
+                    <p style="font-size:0.85rem;opacity:0.85;margin-top:0.25rem;">${cat.description}</p>
+                </div>
+            </a>`;
+        }).join('');
+    </script>
+
+</body>
+</html>

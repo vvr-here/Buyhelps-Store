@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Buyhelps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="cart.html">Cart</a>
+        <span class="separator">/</span>
+        <span class="current">Checkout</span>
+      </nav>
+
+      <h2 class="section-title">Checkout</h2>
+
+      <div class="checkout-layout" style="display:grid;grid-template-columns:1.65fr 1fr;gap:2.5rem;align-items:start;">
+
+        <!-- Left Column: Forms -->
+        <div class="checkout-forms">
+
+          <!-- Shipping Info -->
+          <div class="checkout-card" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:2rem;margin-bottom:1.5rem;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <span class="step-number" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F46E5,#EC4899);color:#fff;font-weight:700;font-size:0.9rem;">1</span>
+                <h3 style="font-size:1.15rem;font-weight:700;">Delivery &amp; Shipping Address</h3>
+              </div>
+              <a href="account.html" style="font-size:0.85rem;color:var(--color-primary);font-weight:600;text-decoration:none;">Manage in Account &rarr;</a>
+            </div>
+
+            <!-- Saved Addresses Selector -->
+            <div id="saved-addresses-selector" style="margin-bottom:1.75rem;">
+              <label style="display:block;font-size:0.875rem;font-weight:700;color:var(--color-text-primary);margin-bottom:0.75rem;">
+                Select from Saved Addresses
+              </label>
+              <div id="saved-address-cards" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:0.85rem;">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+
+            <div style="position:relative;margin:1.5rem 0;text-align:center;">
+              <hr style="border:none;border-top:1px solid var(--color-border);">
+              <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--color-surface);padding:0 0.85rem;font-size:0.8rem;color:var(--color-text-muted);font-weight:600;">Or Confirm / Edit Address Details</span>
+            </div>
+
+            <form id="checkout-form" onsubmit="return false;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">First Name *</label>
+                  <input type="text" id="ship-first-name" class="form-input" placeholder="Vikram" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Last Name</label>
+                  <input type="text" id="ship-last-name" class="form-input" placeholder="Rao" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Email Address *</label>
+                  <input type="email" id="ship-email" class="form-input" placeholder="vikram.rao@buyhelps.in" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">10-Digit Mobile Number *</label>
+                  <input type="tel" id="ship-phone" class="form-input" placeholder="9876543210" required pattern="[0-9]{10}" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Flat, House No., Building *</label>
+                <input type="text" id="ship-line1" class="form-input" placeholder="Flat 402, Green Acres Residency" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Street, Area, Landmark</label>
+                <input type="text" id="ship-line2" class="form-input" placeholder="12th Main Road, Indiranagar" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+              </div>
+              <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">City / Town *</label>
+                  <input type="text" id="ship-city" class="form-input" placeholder="Bengaluru" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">State *</label>
+                  <select id="ship-state" class="form-input" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;background:var(--color-surface);color:inherit;">
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi NCR</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">PIN Code *</label>
+                  <input type="text" id="ship-pincode" class="form-input" placeholder="560038" required pattern="[0-9]{6}" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Payment -->
+          <div class="checkout-card" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:2rem;margin-bottom:1.5rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+              <span class="step-number" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F46E5,#EC4899);color:#fff;font-weight:700;font-size:0.9rem;">2</span>
+              <h3 style="font-size:1.15rem;font-weight:700;">Payment Method</h3>
+            </div>
+
+            <div class="payment-options" style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+              <label class="payment-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid var(--color-primary);border-radius:var(--radius-md);cursor:pointer;transition:border-color 0.2s;">
+                <input type="radio" name="payment" value="upi" checked onchange="togglePaymentFields()" style="accent-color:var(--color-primary);">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <div style="flex:1;">
+                  <span style="font-weight:700;display:block;">UPI Instant Payment</span>
+                  <span style="font-size:0.8rem;color:var(--color-text-muted);">Google Pay, PhonePe, Paytm, BHIM UPI</span>
+                </div>
+                <span class="badge" style="background:#DCFCE7;color:#15803D;font-weight:700;font-size:0.75rem;">Fastest</span>
+              </label>
+              <label class="payment-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;transition:border-color 0.2s;">
+                <input type="radio" name="payment" value="credit-card" onchange="togglePaymentFields()" style="accent-color:var(--color-primary);">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                <div style="flex:1;">
+                  <span style="font-weight:600;display:block;">Credit / Debit Card</span>
+                  <span style="font-size:0.8rem;color:var(--color-text-muted);">Visa, MasterCard, RuPay, Amex</span>
+                </div>
+              </label>
+              <label class="payment-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;transition:border-color 0.2s;">
+                <input type="radio" name="payment" value="cod" onchange="togglePaymentFields()" style="accent-color:var(--color-primary);">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="1"/><circle cx="12" cy="12" r="3"/><path d="M2 10h2m16 0h2M2 14h2m16 0h2"/></svg>
+                <div style="flex:1;">
+                  <span style="font-weight:600;display:block;">Cash on Delivery</span>
+                  <span style="font-size:0.8rem;color:var(--color-text-muted);">Pay cash or UPI at your doorstep</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- UPI field container -->
+            <div id="upi-fields" style="display:block;background:var(--color-surface-subtle);padding:1rem;border-radius:var(--radius-md);margin-bottom:1rem;">
+              <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Enter UPI ID / VPA</label>
+              <div style="display:flex;gap:0.5rem;">
+                <input type="text" class="form-input" placeholder="e.g. yourname@okhdfcbank" value="vikram.rao@oksbi" style="flex:1;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                <button type="button" class="btn btn-secondary" style="padding:0.65rem 1rem;font-size:0.85rem;" onclick="showToast('UPI ID verified!')">Verify</button>
+              </div>
+            </div>
+
+            <div id="credit-card-fields" style="display:none;">
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Card Number</label>
+                <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Expiry Date</label>
+                  <input type="text" class="form-input" placeholder="MM / YY" maxlength="7" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">CVV</label>
+                  <input type="password" class="form-input" placeholder="123" maxlength="4" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Place Order Button -->
+          <button class="btn btn-primary btn-block" onclick="placeOrder()" style="padding:1.15rem;font-size:1.1rem;font-weight:700;box-shadow:0 10px 25px -5px rgba(79,70,229,0.35);">
+            Place Order &amp; Pay
+          </button>
+          <div style="text-align:center;margin-top:0.75rem;font-size:0.825rem;color:var(--color-text-muted);">
+            🔒 Safe &amp; Secure 256-bit SSL Encrypted Checkout
+          </div>
+
+        </div>
+
+        <!-- Right Column: Order Summary -->
+        <div class="cart-order-summary" id="checkout-summary" style="position:sticky;top:6rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.75rem;">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="cart-drawer-container"></div>
+  <div id="search-modal-container"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // 1. Mount Universal Components
+    document.getElementById('site-header').innerHTML = getHeaderHTML('cart');
+    document.getElementById('site-footer').innerHTML = getFooterHTML();
+    document.getElementById('cart-drawer-container').innerHTML = getCartDrawerHTML();
+    document.getElementById('search-modal-container').innerHTML = getSearchModalHTML();
+    initApp();
+
+    // 2. State for Coupons, Wallet, and Gift Wrap
+    let appliedCoupon = null;
+    let isWalletApplied = false;
+    let isGiftWrapApplied = false;
+    const WALLET_BALANCE = 1250;
+    const GIFT_WRAP_FEE = 99;
+
+    const COUPON_DATABASE = {
+      'BUYHELPS10': { type: 'percent', value: 10, label: '10% OFF' },
+      'FESTIVE500': { type: 'flat', value: 500, minOrder: 1999, label: '₹500 OFF' },
+      'VVR1000': { type: 'flat', value: 1000, label: '₹1,000 VIP OFF' },
+      'EXTRA5': { type: 'percent', value: 5, label: '5% EXTRA OFF' }
+    };
+
+    // 3. Saved Addresses
+    const DEFAULT_ADDRESSES = [
+      {
+        id: "addr-1",
+        name: "Vikram V. Rao",
+        phone: "9876543210",
+        line1: "Flat 402, Green Acres Residency",
+        line2: "12th Main Road, Indiranagar",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560038",
+        type: "HOME",
+        isDefault: true
+      },
+      {
+        id: "addr-2",
+        name: "Vikram V. Rao (Work)",
+        phone: "9876543210",
+        line1: "Tower B, 5th Floor, Manyata Embassy Business Park",
+        line2: "Outer Ring Road, Nagavara",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560045",
+        type: "WORK",
+        isDefault: false
+      },
+      {
+        id: "addr-3",
+        name: "V.V. Rao & Family",
+        phone: "9876511223",
+        line1: "House No. 45, Road No. 36",
+        line2: "Jubilee Hills",
+        city: "Hyderabad",
+        state: "Telangana",
+        pincode: "500033",
+        type: "OTHER",
+        isDefault: false
+      }
+    ];
+
+    function getAddresses() {
+      try {
+        const stored = localStorage.getItem("buyhelps_addresses");
+        return stored ? JSON.parse(stored) : DEFAULT_ADDRESSES;
+      } catch {
+        return DEFAULT_ADDRESSES;
+      }
+    }
+
+    let selectedAddressId = null;
+
+    function renderSavedAddresses() {
+      const addresses = getAddresses();
+      const container = document.getElementById('saved-address-cards');
+      if (!container) return;
+
+      if (!selectedAddressId && addresses.length > 0) {
+        const defaultAddr = addresses.find(a => a.isDefault) || addresses[0];
+        selectedAddressId = defaultAddr.id;
+        populateAddressForm(defaultAddr);
+      }
+
+      container.innerHTML = addresses.map(addr => {
+        const isSelected = addr.id === selectedAddressId;
+        return `
+          <div class="saved-address-pick-card ${isSelected ? 'selected' : ''}" onclick="selectAddress('${addr.id}')" style="background:var(--color-surface);position:relative;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+              <span style="font-weight:700;font-size:0.9rem;">${addr.name}</span>
+              <span class="badge" style="font-size:0.7rem;text-transform:uppercase;background:${addr.type === 'HOME' ? '#EEF2FF' : '#F3F4F6'};color:${addr.type === 'HOME' ? '#4F46E5' : '#374151'};">${addr.type}</span>
+            </div>
+            <div style="font-size:0.8rem;color:var(--color-text-secondary);line-height:1.4;">
+              ${addr.line1}, ${addr.city} - ${addr.pincode}
+            </div>
+            <div style="font-size:0.75rem;color:var(--color-text-muted);margin-top:0.25rem;">
+              📞 ${addr.phone}
+            </div>
+            ${isSelected ? '<div style="position:absolute;bottom:8px;right:8px;color:#4F46E5;font-size:0.85rem;font-weight:700;">✓ Selected</div>' : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectAddress(id) {
+      selectedAddressId = id;
+      const addresses = getAddresses();
+      const addr = addresses.find(a => a.id === id);
+      if (addr) {
+        populateAddressForm(addr);
+      }
+      renderSavedAddresses();
+    }
+
+    function populateAddressForm(addr) {
+      const parts = addr.name.split(' ');
+      document.getElementById('ship-first-name').value = parts[0] || '';
+      document.getElementById('ship-last-name').value = parts.slice(1).join(' ') || '';
+      document.getElementById('ship-phone').value = addr.phone.replace(/[^0-9]/g, '').slice(-10);
+      document.getElementById('ship-line1').value = addr.line1;
+      document.getElementById('ship-line2').value = addr.line2 || '';
+      document.getElementById('ship-city').value = addr.city;
+      document.getElementById('ship-state').value = addr.state;
+      document.getElementById('ship-pincode').value = addr.pincode;
+    }
+
+    function togglePaymentFields() {
+      const selected = document.querySelector('input[name="payment"]:checked').value;
+      const ccFields = document.getElementById('credit-card-fields');
+      const upiFields = document.getElementById('upi-fields');
+      
+      ccFields.style.display = selected === 'credit-card' ? 'block' : 'none';
+      upiFields.style.display = selected === 'upi' ? 'block' : 'none';
+
+      document.querySelectorAll('.payment-option').forEach(opt => {
+        const radio = opt.querySelector('input[type="radio"]');
+        opt.style.borderColor = radio.checked ? 'var(--color-primary)' : 'var(--color-border)';
+      });
+    }
+
+    // 4. Promo Code Handlers
+    function applyCoupon(code) {
+      const cleaned = (code || '').trim().toUpperCase();
+      const coupon = COUPON_DATABASE[cleaned];
+
+      if (!coupon) {
+        showToast('Invalid promo code. Try BUYHELPS10 or FESTIVE500');
+        return;
+      }
+
+      const subtotal = Cart.getSubtotal();
+      if (coupon.minOrder && subtotal < coupon.minOrder) {
+        showToast(`This coupon requires a minimum cart value of ${formatPrice(coupon.minOrder)}`);
+        return;
+      }
+
+      appliedCoupon = { code: cleaned, ...coupon };
+      showToast(`Coupon "${cleaned}" applied successfully!`);
+      renderCheckoutSummary();
+    }
+
+    function removeCoupon() {
+      appliedCoupon = null;
+      showToast('Coupon removed');
+      renderCheckoutSummary();
+    }
+
+    function toggleWallet(e) {
+      isWalletApplied = e.target.checked;
+      renderCheckoutSummary();
+    }
+
+    function toggleGiftWrap(e) {
+      isGiftWrapApplied = e.target.checked;
+      renderCheckoutSummary();
+    }
+
+    // 5. Render Checkout Summary
+    function renderCheckoutSummary() {
+      const cart = Cart.getCart();
+      const summaryEl = document.getElementById('checkout-summary');
+
+      if (cart.length === 0) {
+        summaryEl.innerHTML = `
+          <div style="text-align:center;padding:2rem;">
+            <p style="color:var(--color-text-muted);">Your cart is empty.</p>
+            <a href="categories.html" class="btn btn-primary" style="margin-top:1rem;">Start Shopping</a>
+          </div>`;
+        return;
+      }
+
+      const subtotal = Cart.getSubtotal();
+      const threshold = 1999;
+      const shipping = subtotal >= threshold || subtotal === 0 ? 0 : 149;
+      const giftCost = isGiftWrapApplied ? GIFT_WRAP_FEE : 0;
+
+      // Calculate coupon discount
+      let couponDiscount = 0;
+      if (appliedCoupon) {
+        if (appliedCoupon.type === 'percent') {
+          couponDiscount = Math.round((subtotal * appliedCoupon.value) / 100);
+        } else if (appliedCoupon.type === 'flat') {
+          couponDiscount = Math.min(appliedCoupon.value, subtotal);
+        }
+      }
+
+      // Calculate wallet deduction
+      let walletDeduction = 0;
+      const amountBeforeWallet = Math.max(0, subtotal - couponDiscount + shipping + giftCost);
+      if (isWalletApplied) {
+        walletDeduction = Math.min(WALLET_BALANCE, amountBeforeWallet);
+      }
+
+      const finalTotal = Math.max(0, amountBeforeWallet - walletDeduction);
+
+      summaryEl.innerHTML = `
+        <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:1.25rem;">Order Summary (${cart.length} item${cart.length > 1 ? 's' : ''})</h3>
+        
+        <!-- Cart Items Preview -->
+        <div style="max-height:240px;overflow-y:auto;margin-bottom:1.25rem;padding-right:0.25rem;">
+          ${cart.map(item => `
+            <div style="display:flex;gap:0.75rem;align-items:center;padding:0.6rem 0;border-bottom:1px solid var(--color-border-subtle);">
+              <img src="${item.product.images[0]}" alt="${item.product.title}" onerror="handleImgError(this, '${item.product.title.replace(/'/g, "\\'")}', '${item.product.category}')" style="width:48px;height:48px;object-fit:cover;border-radius:var(--radius-sm);background:var(--color-surface-subtle);">
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:0.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.product.title}</div>
+                <div style="font-size:0.8rem;color:var(--color-text-muted);">Qty: ${item.qty}</div>
+              </div>
+              <span style="font-weight:600;font-size:0.9rem;white-space:nowrap;">${formatPrice(item.lineTotal)}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Buyhelps Cash Wallet Deduction Box -->
+        <div class="wallet-deduct-box">
+          <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;">
+            <input type="checkbox" id="wallet-checkbox" ${isWalletApplied ? 'checked' : ''} onchange="toggleWallet(event)" style="width:18px;height:18px;accent-color:#4F46E5;">
+            <div>
+              <span style="font-weight:700;font-size:0.875rem;color:var(--color-text-primary);display:block;">
+                Use Buyhelps Cash Wallet
+              </span>
+              <span style="font-size:0.775rem;color:var(--color-text-secondary);">
+                Available Balance: <strong style="color:#4F46E5;">${formatPrice(WALLET_BALANCE)}</strong>
+              </span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Gift Packaging Option -->
+        <div class="gift-wrap-box">
+          <label style="display:flex;align-items:flex-start;gap:0.65rem;cursor:pointer;">
+            <input type="checkbox" id="gift-wrap-checkbox" ${isGiftWrapApplied ? 'checked' : ''} onchange="toggleGiftWrap(event)" style="width:18px;height:18px;margin-top:2px;accent-color:#F97316;">
+            <div>
+              <span style="font-weight:700;font-size:0.875rem;color:var(--color-text-primary);display:block;">
+                🎁 Add Luxury Gift Packaging &amp; Greeting Card (+₹99)
+              </span>
+              <span style="font-size:0.775rem;color:var(--color-text-secondary);display:block;margin-top:2px;">
+                Includes custom luxury ribbon wrap, wax stamp seal, and personal greeting card.
+              </span>
+            </div>
+          </label>
+          ${isGiftWrapApplied ? `
+            <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px dashed rgba(249,115,22,0.3);">
+              <label style="font-size:0.8rem;font-weight:700;display:block;margin-bottom:0.3rem;">Personal Gift Note &amp; Recipient:</label>
+              <textarea id="gift-note-text" class="form-input" rows="2" placeholder="e.g. Happy Birthday Vikram! Hope you enjoy this gift." style="width:100%;font-size:0.825rem;padding:0.45rem 0.65rem;background:var(--color-surface);"></textarea>
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Promo Code Section -->
+        <div class="checkout-coupon-box">
+          <label style="display:block;font-size:0.85rem;font-weight:700;margin-bottom:0.4rem;">Have a Promo Code?</label>
+          ${appliedCoupon ? `
+            <div class="coupon-applied-badge">
+              <span>🎟️ <strong>${appliedCoupon.code}</strong> Applied (${formatPrice(couponDiscount)} off)</span>
+              <button type="button" onclick="removeCoupon()" style="background:none;border:none;color:inherit;font-weight:800;font-size:1.1rem;cursor:pointer;">&times;</button>
+            </div>
+          ` : `
+            <div class="coupon-input-wrap">
+              <input type="text" id="coupon-input" class="form-input" placeholder="e.g. BUYHELPS10" style="flex:1;padding:0.6rem 0.8rem;font-size:0.875rem;text-transform:uppercase;">
+              <button type="button" class="btn btn-secondary" onclick="applyCoupon(document.getElementById('coupon-input').value)" style="padding:0.6rem 1rem;font-size:0.85rem;">Apply</button>
+            </div>
+            <div style="display:flex;gap:0.4rem;margin-top:0.5rem;flex-wrap:wrap;">
+              <span onclick="applyCoupon('BUYHELPS10')" style="font-size:0.75rem;background:var(--color-surface-subtle);border:1px dashed var(--color-border);padding:0.2rem 0.5rem;border-radius:4px;cursor:pointer;">🎟️ BUYHELPS10</span>
+              <span onclick="applyCoupon('FESTIVE500')" style="font-size:0.75rem;background:var(--color-surface-subtle);border:1px dashed var(--color-border);padding:0.2rem 0.5rem;border-radius:4px;cursor:pointer;">🎉 FESTIVE500</span>
+              <span onclick="applyCoupon('EXTRA5')" style="font-size:0.75rem;background:var(--color-surface-subtle);border:1px dashed var(--color-border);padding:0.2rem 0.5rem;border-radius:4px;cursor:pointer;">🎁 EXTRA5</span>
+              <span onclick="applyCoupon('VVR1000')" style="font-size:0.75rem;background:var(--color-surface-subtle);border:1px dashed var(--color-border);padding:0.2rem 0.5rem;border-radius:4px;cursor:pointer;">⭐ VVR1000</span>
+            </div>
+          `}
+        </div>
+
+        <!-- Price Breakdown -->
+        <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.9rem;">
+          <span style="color:var(--color-text-secondary);">Subtotal</span>
+          <span style="font-weight:600;">${formatPrice(subtotal)}</span>
+        </div>
+
+        ${couponDiscount > 0 ? `
+          <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.9rem;color:#15803D;">
+            <span>Coupon Discount (${appliedCoupon.code})</span>
+            <span style="font-weight:700;">- ${formatPrice(couponDiscount)}</span>
+          </div>
+        ` : ''}
+
+        ${walletDeduction > 0 ? `
+          <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.9rem;color:#4F46E5;">
+            <span>Buyhelps Wallet Applied</span>
+            <span style="font-weight:700;">- ${formatPrice(walletDeduction)}</span>
+          </div>
+        ` : ''}
+
+        ${isGiftWrapApplied ? `
+          <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.9rem;color:#F97316;">
+            <span>Gift Wrap &amp; Card</span>
+            <span style="font-weight:700;">+ ${formatPrice(GIFT_WRAP_FEE)}</span>
+          </div>
+        ` : ''}
+
+        <div class="summary-row" style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.9rem;">
+          <span style="color:var(--color-text-secondary);">Standard Delivery</span>
+          <span style="font-weight:600;">${shipping === 0 ? '<span style="color:#15803D;font-weight:700;">FREE</span>' : formatPrice(shipping)}</span>
+        </div>
+
+        ${shipping > 0 ? `
+          <p style="font-size:0.775rem;color:var(--color-text-muted);margin-bottom:1rem;">Add ${formatPrice(threshold - subtotal)} more for free delivery!</p>
+        ` : `
+          <p style="font-size:0.775rem;color:#15803D;margin-bottom:1rem;font-weight:600;">✓ Free Express Delivery included</p>
+        `}
+
+        <div class="summary-row total" style="display:flex;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--color-border);font-weight:800;font-size:1.25rem;">
+          <span>Total Payable</span>
+          <span style="color:var(--color-primary);">${formatPrice(finalTotal)}</span>
+        </div>
+      `;
+    }
+
+    function placeOrder() {
+      const cart = Cart.getCart();
+      if (cart.length === 0) {
+        showToast('Your cart is empty');
+        return;
+      }
+
+      // Check form fields
+      const firstName = document.getElementById('ship-first-name').value;
+      const phone = document.getElementById('ship-phone').value;
+      const pincode = document.getElementById('ship-pincode').value;
+
+      if (!firstName || !phone || !pincode) {
+        showToast('Please fill in required delivery information');
+        return;
+      }
+
+      const randomOrderId = '#BUYHELPS-2026-' + Math.floor(10000 + Math.random() * 90000);
+      localStorage.setItem('buyhelps_last_order_id', randomOrderId);
+
+      Cart.clearCart();
+      window.location.href = 'confirmation.html';
+    }
+
+    // Initialize Page
+    renderSavedAddresses();
+    renderCheckoutSummary();
+    window.addEventListener('cart:updated', renderCheckoutSummary);
+  </script>
+</body>
+</html>

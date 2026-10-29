@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyhelps — Discover Thoughtfully Curated Essentials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-content">
+            <span class="hero-badge">New Collection 2026</span>
+            <h1 class="hero-title">Discover Thoughtfully Curated Essentials</h1>
+            <p class="hero-description">Explore our handpicked selection of quality goods designed to elevate your everyday life. From timeless wardrobe staples to modern accessories, find pieces that blend style with substance.</p>
+            <div class="hero-actions">
+              <a href="categories.html" class="btn btn-primary">Shop Collection</a>
+              <a href="categories.html" class="btn btn-secondary">Browse Categories</a>
+            </div>
+          </div>
+          <!-- Right Column -->
+          <div class="hero-image-wrap">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Buyhelps lifestyle collection" class="hero-image">
+            <div class="hero-floating-card">
+              <div class="hero-floating-stat">
+                <span class="hero-floating-number">200+</span>
+                <span class="hero-floating-label">Products</span>
+              </div>
+              <div class="hero-floating-divider"></div>
+              <div class="hero-floating-stat">
+                <span class="hero-floating-label">Free Delivery over ₹1,999</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES BANNER ========== -->
+    <section class="features-banner">
+      <div class="container">
+        <div class="features-grid">
+          <!-- Free Shipping -->
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">Free Shipping</span>
+              <span class="feature-desc">Over ₹1,999</span>
+            </div>
+          </div>
+          <!-- Secure Payment -->
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">Secure Payment</span>
+              <span class="feature-desc">100% Protected</span>
+            </div>
+          </div>
+          <!-- Easy Returns -->
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">Easy Returns</span>
+              <span class="feature-desc">30-day policy</span>
+            </div>
+          </div>
+          <!-- 24/7 Support -->
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">24/7 Support</span>
+              <span class="feature-desc">Always here to help</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CATEGORY GRID SECTION ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <a href="categories.html" class="section-link">View All →</a>
+        </div>
+        <div class="grid grid-cols-3" id="home-categories-grid">
+          <!-- Populated by JS from CATEGORIES -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURED PRODUCTS SECTION ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Trending This Season</h2>
+        </div>
+        <div id="featured-products" class="grid grid-cols-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RECENTLY VIEWED SECTION ========== -->
+    <div class="container" id="recently-viewed-products"></div>
+
+    <!-- ========== NEWSLETTER SECTION ========== -->
+    <section class="newsletter-section" style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2 class="newsletter-title">Join the Buyhelps Community</h2>
+          <p class="newsletter-subtitle">Subscribe to get the latest updates on new arrivals, exclusive offers, and styling tips delivered straight to your inbox.</p>
+          <div class="newsletter-form">
+            <input type="email" class="form-input" placeholder="Enter your email address" aria-label="Email address">
+            <button class="btn btn-primary">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer-container"></div>
+
+  <!-- Search Modal -->
+  <div id="search-modal-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Inject shared components
+    document.getElementById('site-header').innerHTML = getHeaderHTML('home');
+    document.getElementById('site-footer').innerHTML = getFooterHTML();
+    document.getElementById('cart-drawer-container').innerHTML = getCartDrawerHTML();
+    document.getElementById('search-modal-container').innerHTML = getSearchModalHTML();
+    initApp();
+    // Populate category cards
+    const catGrid = document.getElementById('home-categories-grid');
+    if (catGrid) {
+      catGrid.innerHTML = CATEGORIES.map(cat => {
+        const count = getProductsByCategory(cat.id).length;
+        return `
+        <a href="category.html?cat=${cat.id}" class="category-card">
+          <img src="${cat.image}" alt="${cat.name}" onerror="handleImgError(this, '${cat.name}', 'Category')">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-info">
+            <h3 class="category-card-title">${cat.icon} ${cat.name}</h3>
+            <span class="category-card-count">${count} products</span>
+          </div>
+        </a>`;
+      }).join('');
+    }
+    // Populate featured products
+    document.getElementById('featured-products').innerHTML = getFeaturedProducts().map(p => renderProductCard(p)).join('');
+
+    // Populate recently viewed products if any exist
+    if (typeof RecentlyViewed !== 'undefined') {
+      RecentlyViewed.render('recently-viewed-products');
+    }
+  </script>
+
+</body>
+</html>
