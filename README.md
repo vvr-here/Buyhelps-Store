@@ -315,5 +315,5 @@ npx serve .
 ---
 
 <p align="center">
-  <b>Buyhelps Smart Store</b> • Built with dedication by <b>VVR</b> • © 2026 All Rights Reserved
+  <b>Buyhelps Smart Store</b> • Built with dedication by <b>vineet</b> • © 2026 All Rights Reserved
 </p>
