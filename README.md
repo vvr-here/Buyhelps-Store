@@ -83,5 +83,5 @@ No installation or node setup required!
 ---
 
 <p align="center">
-  <b>Buyhelps Smart Store</b> • Made with ❤️ By <b>vvr</b> • © 2026 All Rights Reserved
+  <b>Buyhelps Smart Store</b> • Made with ❤️ By <b>Vineet</b> • © 2026 All Rights Reserved
 </p>
