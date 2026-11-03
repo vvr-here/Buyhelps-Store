@@ -1,7 +1,7 @@
 # 🛍️ Buyhelps — Smart Store
 
 > **Curated Essentials for Intentional Living**  
-> *Crafted with ❤️ by VVR*
+> *Crafted with ❤️ by Vineet*
 
 A modern, responsive e-commerce web platform built with **pure vanilla HTML5, CSS3, and JavaScript**. Zero build steps, zero external dependencies—just open and shop.
 
