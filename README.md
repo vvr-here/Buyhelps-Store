@@ -81,7 +81,7 @@ No installation or node setup required!
 - **Frontend**: Semantic HTML5, Modern CSS3 (Variables, Flexbox, Grid), Vanilla JavaScript (ES6+ Modules)
 - **Data & Storage**: Client-side state managed via browser `localStorage`
 - **Typography**:
-  - **English (HeyClicky Reference)**: **Inter** (Google Fonts, weights 300–900 with refined neo-grotesque tracking: `-0.012em` body, `-0.025em` headings)
+  - **English**: **Inter** (Google Fonts, weights 300–900 with refined neo-grotesque tracking: `-0.012em` body, `-0.025em` headings)
   - **Hindi (Devanagari)**: **Poppins** (Google Fonts, weights 100–900 with `letter-spacing: 0` for smooth Devanagari ligatures)
 - **Bilingual Engine**: Instant English / हिन्दी toggle with full interface translation and dynamic DOM observer
 
